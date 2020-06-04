@@ -12,7 +12,7 @@ import Timer from '../components/HowTo/Timer.svelte'
   }
 </style>
 
-<h1>Handwashing App</h1>
+<h1>Handwashing Timer</h1>
 
 <Timer />
 

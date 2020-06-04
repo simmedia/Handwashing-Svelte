@@ -1194,7 +1194,7 @@ var app = (function () {
     	return {
     		c() {
     			h1 = element("h1");
-    			h1.textContent = "Handwashing App";
+    			h1.textContent = "Handwashing Timer";
     			t1 = space();
     			create_component(timer.$$.fragment);
     			t2 = space();
