@@ -1,6 +1,4 @@
 <script>
-  // your script goes here
-  export let mode = "";
   export let color = "";
   export let disabled = false;
 </script>

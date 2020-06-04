@@ -747,8 +747,8 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	const default_slot_template = /*$$slots*/ ctx[4].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
+    	const default_slot_template = /*$$slots*/ ctx[3].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
 
     	const block = {
     		c: function create() {
@@ -756,7 +756,7 @@ var app = (function () {
     			if (default_slot) default_slot.c();
     			button.disabled = /*disabled*/ ctx[1];
     			attr_dev(button, "class", button_class_value = "" + (null_to_empty(/*color*/ ctx[0]) + " svelte-dputsf"));
-    			add_location(button, file$1, 29, 0, 443);
+    			add_location(button, file$1, 27, 0, 392);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -771,14 +771,14 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[5], false, false, false);
+    				dispose = listen_dev(button, "click", /*click_handler*/ ctx[4], false, false, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
     			if (default_slot) {
-    				if (default_slot.p && dirty & /*$$scope*/ 8) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[3], dirty, null, null);
+    				if (default_slot.p && dirty & /*$$scope*/ 4) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[2], dirty, null, null);
     				}
     			}
 
@@ -819,10 +819,9 @@ var app = (function () {
     }
 
     function instance$1($$self, $$props, $$invalidate) {
-    	let { mode = "" } = $$props;
     	let { color = "" } = $$props;
     	let { disabled = false } = $$props;
-    	const writable_props = ["mode", "color", "disabled"];
+    	const writable_props = ["color", "disabled"];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Button> was created with unknown prop '${key}'`);
@@ -836,16 +835,14 @@ var app = (function () {
     	}
 
     	$$self.$set = $$props => {
-    		if ("mode" in $$props) $$invalidate(2, mode = $$props.mode);
     		if ("color" in $$props) $$invalidate(0, color = $$props.color);
     		if ("disabled" in $$props) $$invalidate(1, disabled = $$props.disabled);
-    		if ("$$scope" in $$props) $$invalidate(3, $$scope = $$props.$$scope);
+    		if ("$$scope" in $$props) $$invalidate(2, $$scope = $$props.$$scope);
     	};
 
-    	$$self.$capture_state = () => ({ mode, color, disabled });
+    	$$self.$capture_state = () => ({ color, disabled });
 
     	$$self.$inject_state = $$props => {
-    		if ("mode" in $$props) $$invalidate(2, mode = $$props.mode);
     		if ("color" in $$props) $$invalidate(0, color = $$props.color);
     		if ("disabled" in $$props) $$invalidate(1, disabled = $$props.disabled);
     	};
@@ -854,13 +851,13 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [color, disabled, mode, $$scope, $$slots, click_handler];
+    	return [color, disabled, $$scope, $$slots, click_handler];
     }
 
     class Button extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { mode: 2, color: 0, disabled: 1 });
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { color: 0, disabled: 1 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -868,14 +865,6 @@ var app = (function () {
     			options,
     			id: create_fragment$1.name
     		});
-    	}
-
-    	get mode() {
-    		throw new Error("<Button>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
-    	}
-
-    	set mode(value) {
-    		throw new Error("<Button>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
     	get color() {
