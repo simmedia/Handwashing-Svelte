@@ -4,7 +4,7 @@
 
 # svelte app
 
-## [Demo](https://simmedia.github.io/Handwashing-Svelte/)
+## [Demo](https://handwashing-svelte.now.sh/)
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
 
