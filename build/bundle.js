@@ -571,8 +571,8 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	const default_slot_template = /*$$slots*/ ctx[4].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
+    	const default_slot_template = /*$$slots*/ ctx[3].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
 
     	return {
     		c() {
@@ -591,14 +591,14 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen(button, "click", /*click_handler*/ ctx[5]);
+    				dispose = listen(button, "click", /*click_handler*/ ctx[4]);
     				mounted = true;
     			}
     		},
     		p(ctx, [dirty]) {
     			if (default_slot) {
-    				if (default_slot.p && dirty & /*$$scope*/ 8) {
-    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[3], dirty, null, null);
+    				if (default_slot.p && dirty & /*$$scope*/ 4) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[2], dirty, null, null);
     				}
     			}
 
@@ -629,7 +629,6 @@ var app = (function () {
     }
 
     function instance$1($$self, $$props, $$invalidate) {
-    	let { mode = "" } = $$props;
     	let { color = "" } = $$props;
     	let { disabled = false } = $$props;
     	let { $$slots = {}, $$scope } = $$props;
@@ -639,19 +638,18 @@ var app = (function () {
     	}
 
     	$$self.$set = $$props => {
-    		if ("mode" in $$props) $$invalidate(2, mode = $$props.mode);
     		if ("color" in $$props) $$invalidate(0, color = $$props.color);
     		if ("disabled" in $$props) $$invalidate(1, disabled = $$props.disabled);
-    		if ("$$scope" in $$props) $$invalidate(3, $$scope = $$props.$$scope);
+    		if ("$$scope" in $$props) $$invalidate(2, $$scope = $$props.$$scope);
     	};
 
-    	return [color, disabled, mode, $$scope, $$slots, click_handler];
+    	return [color, disabled, $$scope, $$slots, click_handler];
     }
 
     class Button extends SvelteComponent {
     	constructor(options) {
     		super();
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { mode: 2, color: 0, disabled: 1 });
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { color: 0, disabled: 1 });
     	}
     }
 
