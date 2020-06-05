@@ -2,9 +2,10 @@
   import Header from "./UI/Header.svelte";
   import About from "./pages/About.svelte";
   import Handwashing from './pages/Handwashing.svelte'
+  import Notes from './pages/Notes.svelte'
 
 
-  let currentPage = 'Handwashing';
+  let currentPage = 'Home';
 </script>
 
 <style>
@@ -37,5 +38,7 @@
 	<About on:action={(e) => console.log(e.detail)} />
 {:else if currentPage === 'Handwashing'}
   <Handwashing />
+{:else if currentPage === 'Notes'}
+  <Notes />
 {/if}
 </main>

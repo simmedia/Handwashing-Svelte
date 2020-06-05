@@ -1,6 +1,6 @@
 <script>
 import {createEventDispatcher} from 'svelte'
-  let navLinks = ["Home", "About", "Handwashing", "Contact"];
+  let navLinks = ["Home", "About", "Handwashing", "Notes", "Contact"];
   export let currentPage
 
 const dispatch = createEventDispatcher()

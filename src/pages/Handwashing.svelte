@@ -8,6 +8,7 @@ import Timer from '../components/HowTo/Timer.svelte'
       text-align: center;
   }
   img {
+    margin: 0 auto;
     max-width: 100%;
   }
 </style>
@@ -16,7 +17,7 @@ import Timer from '../components/HowTo/Timer.svelte'
 
 <Timer />
 
-<div bp="grid">
+<div bp="margin-top--lg grid">
   <img bp="offset-5@md 4@md 12@sm" src="images/handwashImage.gif" alt="How to wash your hands.">
 </div>
 
