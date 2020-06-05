@@ -21,11 +21,11 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 400px;
+    width: 70vw;
     background: #f7f7f7;
-    padding: 30px;
     display: flex;
     place-items: center;
+    z-index: 222;
   }
 
   nav {
@@ -34,24 +34,29 @@
 
   ul li {
     list-style-type: none;
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  ul li:hover {
+    color: #e9a528;
   }
 
   .close {
     position: absolute;
-    top: 40px;
-    right: 40px;
+    top: 20px;
+    right: 20px;
     transform: rotate(45deg);
     font-size: 3rem;
     color: #443e3e;
     cursor: pointer;
   }
-  
 </style>
 
 {#if show}
-  <div transition:fly={{x: -500, opacity: 1}} class="sidenav">
+  <div transition:fly={{ x: -500, opacity: 1 }} class="sidenav">
     <span on:click={() => dispatch('closeNav')} class="close">+</span>
     <nav>
       <ul>

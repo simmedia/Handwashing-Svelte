@@ -67,3 +67,13 @@ button:not(:disabled):active {
 button:focus {
 	border-color: #666;
 }
+
+
+/* my styles */
+
+.container {
+	width: 80vw;
+	margin: 0 auto;
+}
+
+/* ********* */

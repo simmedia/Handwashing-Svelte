@@ -15,10 +15,14 @@
     width: 100%;
     background: #f7f7f7;
     display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
     justify-content: center;
+    z-index: 222;
   }
 
-  .container {
+  .h-container {
     width: 80vw;
     margin: 0 auto;
     height: 80px;
@@ -56,7 +60,7 @@
     width: 50px;
     height: 50px;
     padding: 6px;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-evenly;
   }
@@ -66,10 +70,19 @@
     border-radius: 20px;
     background: #363636;
   }
+
+  @media screen and (max-width: 700px) {
+    nav {
+      display: none;
+    }
+    .header .burger {
+      display: flex !important;
+    }
+  }
 </style>
 
 <div class="header">
-  <div class="container">
+  <div class="h-container">
     <div class="logo">
       <span>
         <h3>simmedia</h3>
