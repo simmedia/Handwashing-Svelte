@@ -1,13 +1,9 @@
 <script>
-    // your script goes here
+import Jumbotron from '../components/Jumbotron.svelte'
 </script>
 
 <style>
-    /* your styles go here */
+
 </style>
 
-<h3>Home page</h3>
-
-<div class="container">
-
-</div>
+<Jumbotron />

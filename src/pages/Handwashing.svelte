@@ -6,6 +6,7 @@ import Timer from '../components/HowTo/Timer.svelte'
 <style>
   h1 {
       text-align: center;
+      margin-bottom: 50px;
   }
   img {
     margin: 0 auto;

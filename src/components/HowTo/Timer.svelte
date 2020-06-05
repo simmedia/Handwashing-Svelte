@@ -28,15 +28,25 @@
   h2 {
     margin: 0;
   }
+  .btns {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
 </style>
 
+<div class="container">
 <div bp="grid">
   <h2 bp="offset-5@md 4@md 12@sm">Seconds Left: {secondsLeft}</h2>
 </div>
 
 <ProgressBar {progress} />
 
-<Button disabled={isRunning} on:click={() => startTimer()} color="red">
+<div class="btns">
+ <Button disabled={isRunning} on:click={() => startTimer()} color="red">
   Start
 </Button>
 <Button disabled={!isRunning} on:click={() => (stoped = true)}>Restart</Button>
+
+</div>
+</div>
