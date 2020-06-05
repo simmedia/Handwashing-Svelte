@@ -1,11 +1,13 @@
 <script>
   import Header from "./UI/Header.svelte";
+  import Sidenav from "./UI/Sidenav.svelte";
+
   import About from "./pages/About.svelte";
-  import Handwashing from './pages/Handwashing.svelte'
-  import Notes from './pages/Notes.svelte'
+  import Handwashing from "./pages/Handwashing.svelte";
+  import Notes from "./pages/Notes.svelte";
 
-
-  let currentPage = 'Home';
+  let sidebar_show = false;
+  let currentPage = "Home";
 </script>
 
 <style>
@@ -30,15 +32,19 @@
   }
 </style>
 
-<Header {currentPage} on:changePage={(e) => currentPage = e.detail} />
+<Header
+  on:click={() => (sidebar_show = !sidebar_show)}
+  {currentPage}
+  on:changePage={e => (currentPage = e.detail)} />
+<Sidenav on:closeNav={()=> sidebar_show = false} bind:show={sidebar_show} {currentPage} on:changePage={e => (currentPage = e.detail)} />
 <main>
-{#if currentPage === 'Home'}
+  {#if currentPage === 'Home'}
     <div>Home Page</div>
-{:else if currentPage === 'About'}
-	<About on:action={(e) => console.log(e.detail)} />
-{:else if currentPage === 'Handwashing'}
-  <Handwashing />
-{:else if currentPage === 'Notes'}
-  <Notes />
-{/if}
+  {:else if currentPage === 'About'}
+    <About on:action={e => console.log(e.detail)} />
+  {:else if currentPage === 'Handwashing'}
+    <Handwashing />
+  {:else if currentPage === 'Notes'}
+    <Notes />
+  {/if}
 </main>
