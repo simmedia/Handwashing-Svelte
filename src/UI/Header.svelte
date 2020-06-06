@@ -41,7 +41,7 @@
   page('/handwashing', navigate)
   page('/contact', navigate)
 
-  page.start()
+  page.start({hashbang: false})
 
   const changePage = e => {
     dispatch("changePage", e);

@@ -2,17 +2,38 @@
   import { fly } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
 
-  let navLinks = ["Home", "About", "Handwashing", "Notes", "Contact"];
+  const dispatch = createEventDispatcher();
+
+  let routeLinks = [
+    {
+      name: "Home",
+      path: "/"
+    },
+    {
+      name: "About",
+      path: "/about"
+    },
+    {
+      name: "Handwashing",
+      path: "/handwashing"
+    },
+    {
+      name: "Notes",
+      path: "/notes"
+    },
+    {
+      name: "Contact",
+      path: "/contact"
+    }
+  ];
 
   export let currentPage;
 
   export let show = false;
 
-  const dispatch = createEventDispatcher();
-
-  const changePage = e => {
-    dispatch("changePage", e);
-  };
+  // const changePage = e => {
+  //      dispatch("changePage", e);
+  // };
 </script>
 
 <style>
@@ -30,6 +51,7 @@
 
   nav {
     width: 100%;
+    padding-left: 10vw;
   }
 
   ul li {
@@ -60,11 +82,15 @@
     <span on:click={() => dispatch('closeNav')} class="close">+</span>
     <nav>
       <ul>
-        {#each navLinks as link}
-          <li
-            class:active={currentPage === link}
-            on:click={() => changePage(link)}>
-            {link}
+        {#each routeLinks as link}
+          <li>
+            <a
+              class:active={currentPage === link.path}
+              on:click
+              href={link.path}
+              >
+              {link.name}
+            </a>
           </li>
         {/each}
       </ul>

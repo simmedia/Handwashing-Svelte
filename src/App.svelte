@@ -9,16 +9,8 @@
   import Notes from "./pages/Notes.svelte";
 
   let sidebar_show = false;
-  let currentPage = "/";
+  let currentPage = window.location.pathname || "/";
 
-const changePage = (e) => {
-  currentPage = e
-  sidebar_show = false;
-  console.log('he');
-  console.log(currentPage);
-  
-}
-  
 </script>
 
 <style>
@@ -31,11 +23,11 @@ main {
   on:click={() => (sidebar_show = !sidebar_show)}
   {currentPage}
   on:changePage={e => (currentPage = e.detail)} />
-<Sidenav on:closeNav={()=> sidebar_show = false} bind:show={sidebar_show} {currentPage} on:changePage={e => changePage(e.detail)} />
+<Sidenav on:click={()=> sidebar_show = false} bind:show={sidebar_show} {currentPage} on:changePage={e => changePage(e.detail)} />
 
 
 <main>
-  {#if currentPage === '/home'}
+  {#if currentPage === '/'}
     <Home />
   {:else if currentPage === '/about'}
     <About on:action={e => console.log(e.detail)} />
