@@ -1,39 +1,13 @@
 <script>
   import { fly } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
+  import { routeLinks } from "../store/routes.js";
 
   const dispatch = createEventDispatcher();
-
-  let routeLinks = [
-    {
-      name: "Home",
-      path: "/"
-    },
-    {
-      name: "About",
-      path: "/about"
-    },
-    {
-      name: "Handwashing",
-      path: "/handwashing"
-    },
-    {
-      name: "Notes",
-      path: "/notes"
-    },
-    {
-      name: "Contact",
-      path: "/contact"
-    }
-  ];
 
   export let currentPage;
 
   export let show = false;
-
-  // const changePage = e => {
-  //      dispatch("changePage", e);
-  // };
 </script>
 
 <style>
@@ -61,8 +35,13 @@
     cursor: pointer;
     transition: 0.3s ease;
   }
+  ul li a {
+    color: #363636;
+    text-decoration: none;
+    transition: .3s ease;
+  }
 
-  ul li:hover {
+  ul li a:hover {
     color: #e9a528;
   }
 
@@ -87,8 +66,7 @@
             <a
               class:active={currentPage === link.path}
               on:click
-              href={link.path}
-              >
+              href={link.path}>
               {link.name}
             </a>
           </li>

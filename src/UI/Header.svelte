@@ -1,36 +1,13 @@
 <script>
   import page from 'page.js'
   import { createEventDispatcher } from "svelte";
-  let navLinks = ["Home", "About", "Handwashing", "Notes", "Contact"];
+  import {routeLinks} from '../store/routes.js'
 
-  let routeLinks = [
-    {
-      name: "Home",
-      path: '/'
-    },
-    {
-      name: "About",
-      path: '/about'
-    },
-    {
-      name: "Handwashing",
-      path: '/handwashing'
-    },
-    {
-      name: "Notes",
-      path: '/notes'
-    },
-    {
-      name: "Contact",
-      path: '/contact'
-    },
-  ]
   export let currentPage;
 
   const dispatch = createEventDispatcher();
 
   function navigate (ctx, next) {
-    console.log(`navigate to: ${ctx.path}`);
     dispatch("changePage", ctx.path)
     
   }
@@ -40,7 +17,6 @@
   page('/notes', navigate)
   page('/handwashing', navigate)
   page('/contact', navigate)
-
   page.start({hashbang: false})
 
   const changePage = e => {
@@ -74,9 +50,10 @@
     place-items: center;
   }
 
-  nav ul li {
+  nav ul a {
     list-style-type: none;
     display: inline-block;
+    text-decoration: none;
     margin-left: 50px;
     height: 100%;
     display: flex;
@@ -84,9 +61,10 @@
     border-bottom: 2px solid transparent;
     cursor: pointer;
     transition: 0.3s ease;
+    color: #363636;
   }
 
-  nav ul li:hover {
+  nav ul a:hover {
     color: #e9a528;
   }
 
@@ -113,6 +91,10 @@
     nav {
       display: none;
     }
+    .h-container {
+      width: 100% !important;
+      padding: 0px 20px;
+    }
     .header .burger {
       display: flex !important;
     }
@@ -137,16 +119,6 @@
           </a>
         {/each}
       </ul>
-<!-- 
-      <ul>
-        {#each routeLinks as link}
-          <li
-            class:active={currentPage === link.name}
-            on:click={() => changePage(link.path)}>
-            {link.name}
-          </li>
-        {/each}
-      </ul> -->
     </nav>
     <div class="burger" on:click>
       <div />

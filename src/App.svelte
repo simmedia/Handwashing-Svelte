@@ -16,6 +16,8 @@
 <style>
 main {
   padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 </style>
 
@@ -23,7 +25,7 @@ main {
   on:click={() => (sidebar_show = !sidebar_show)}
   {currentPage}
   on:changePage={e => (currentPage = e.detail)} />
-<Sidenav on:click={()=> sidebar_show = false} bind:show={sidebar_show} {currentPage} on:changePage={e => changePage(e.detail)} />
+<Sidenav on:closeNav={()=> sidebar_show = false} on:click={()=> sidebar_show = false} bind:show={sidebar_show} {currentPage} on:changePage={e => changePage(e.detail)} />
 
 
 <main>

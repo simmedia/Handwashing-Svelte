@@ -50,6 +50,7 @@
     h1 {
         text-align: center;
         width: 100% !important;
+        font-size: 1.8rem;
     }
     .image {
         width: 100%;

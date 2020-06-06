@@ -29,13 +29,12 @@
     margin: 0;
   }
   .btns {
-    width: 600px;
+    width: 300px;
     margin: 0 auto;
     text-align: center;
   }
 </style>
 
-<div class="container">
 <div bp="grid">
   <h2 bp="offset-5@md 4@md 12@sm">Seconds Left: {secondsLeft}</h2>
 </div>
@@ -48,5 +47,4 @@
 </Button>
 <Button disabled={!isRunning} on:click={() => (stoped = true)}>Restart</Button>
 
-</div>
 </div>
