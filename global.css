@@ -70,12 +70,12 @@ button:focus {
 	border-color: #666;
 }
 
-
 /* my styles */
 
 .container {
 	max-width: 1600px;
 	margin: 0 auto;
+	overflow-x: hidden;
 }
 
 @media screen and (max-width: 700px) {
