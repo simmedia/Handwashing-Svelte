@@ -1476,7 +1476,7 @@ var app = (function () {
     			attr_dev(a, "href", a_href_value = /*link*/ ctx[7].path);
     			attr_dev(a, "class", "svelte-iewmzd");
     			toggle_class(a, "active", /*currentPage*/ ctx[0] === /*link*/ ctx[7].path);
-    			add_location(a, file, 131, 10, 2291);
+    			add_location(a, file, 131, 10, 2308);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -1553,26 +1553,26 @@ var app = (function () {
     			div2 = element("div");
     			t4 = space();
     			div3 = element("div");
-    			add_location(h3, file, 125, 8, 2182);
-    			add_location(span, file, 124, 6, 2167);
+    			add_location(h3, file, 125, 8, 2199);
+    			add_location(span, file, 124, 6, 2184);
     			attr_dev(div0, "class", "logo");
-    			add_location(div0, file, 123, 4, 2142);
+    			add_location(div0, file, 123, 4, 2159);
     			attr_dev(ul, "class", "svelte-iewmzd");
-    			add_location(ul, file, 129, 6, 2241);
+    			add_location(ul, file, 129, 6, 2258);
     			attr_dev(nav, "class", "svelte-iewmzd");
-    			add_location(nav, file, 128, 4, 2229);
+    			add_location(nav, file, 128, 4, 2246);
     			attr_dev(div1, "class", "svelte-iewmzd");
-    			add_location(div1, file, 151, 6, 2776);
+    			add_location(div1, file, 151, 6, 2793);
     			attr_dev(div2, "class", "svelte-iewmzd");
-    			add_location(div2, file, 152, 6, 2790);
+    			add_location(div2, file, 152, 6, 2807);
     			attr_dev(div3, "class", "svelte-iewmzd");
-    			add_location(div3, file, 153, 6, 2804);
+    			add_location(div3, file, 153, 6, 2821);
     			attr_dev(div4, "class", "burger svelte-iewmzd");
-    			add_location(div4, file, 150, 4, 2740);
+    			add_location(div4, file, 150, 4, 2757);
     			attr_dev(div5, "class", "h-container svelte-iewmzd");
-    			add_location(div5, file, 122, 2, 2112);
+    			add_location(div5, file, 122, 2, 2129);
     			attr_dev(div6, "class", "header svelte-iewmzd");
-    			add_location(div6, file, 121, 0, 2089);
+    			add_location(div6, file, 121, 0, 2106);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1677,7 +1677,7 @@ var app = (function () {
     	page_js("/notes", navigate);
     	page_js("/handwashing", navigate);
     	page_js("/contact", navigate);
-    	page_js.start();
+    	page_js.start({ hashbang: false });
 
     	const changePage = e => {
     		dispatch("changePage", e);
@@ -1786,11 +1786,11 @@ var app = (function () {
 
     function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[7] = list[i];
+    	child_ctx[6] = list[i];
     	return child_ctx;
     }
 
-    // (58:0) {#if show}
+    // (80:0) {#if show}
     function create_if_block(ctx) {
     	let div;
     	let span;
@@ -1801,7 +1801,7 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	let each_value = /*navLinks*/ ctx[2];
+    	let each_value = /*routeLinks*/ ctx[3];
     	validate_each_argument(each_value);
     	let each_blocks = [];
 
@@ -1822,14 +1822,14 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(span, "class", "close svelte-1kn2sj3");
-    			add_location(span, file$1, 59, 4, 1007);
-    			attr_dev(ul, "class", "svelte-1kn2sj3");
-    			add_location(ul, file$1, 61, 6, 1090);
-    			attr_dev(nav, "class", "svelte-1kn2sj3");
-    			add_location(nav, file$1, 60, 4, 1078);
-    			attr_dev(div, "class", "sidenav svelte-1kn2sj3");
-    			add_location(div, file$1, 58, 2, 940);
+    			attr_dev(span, "class", "close svelte-18h7s53");
+    			add_location(span, file$1, 81, 4, 1282);
+    			attr_dev(ul, "class", "svelte-18h7s53");
+    			add_location(ul, file$1, 83, 6, 1365);
+    			attr_dev(nav, "class", "svelte-18h7s53");
+    			add_location(nav, file$1, 82, 4, 1353);
+    			attr_dev(div, "class", "sidenav svelte-18h7s53");
+    			add_location(div, file$1, 80, 2, 1215);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1845,13 +1845,13 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(span, "click", /*click_handler*/ ctx[5], false, false, false);
+    				dispose = listen_dev(span, "click", /*click_handler_1*/ ctx[5], false, false, false);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*currentPage, navLinks, changePage*/ 21) {
-    				each_value = /*navLinks*/ ctx[2];
+    			if (dirty & /*routeLinks, currentPage*/ 9) {
+    				each_value = /*routeLinks*/ ctx[3];
     				validate_each_argument(each_value);
     				let i;
 
@@ -1902,50 +1902,50 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(58:0) {#if show}",
+    		source: "(80:0) {#if show}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:8) {#each navLinks as link}
+    // (85:8) {#each routeLinks as link}
     function create_each_block$1(ctx) {
     	let li;
-    	let t0_value = /*link*/ ctx[7] + "";
+    	let a;
+    	let t0_value = /*link*/ ctx[6].name + "";
     	let t0;
+    	let a_href_value;
     	let t1;
     	let mounted;
     	let dispose;
 
-    	function click_handler_1(...args) {
-    		return /*click_handler_1*/ ctx[6](/*link*/ ctx[7], ...args);
-    	}
-
     	const block = {
     		c: function create() {
     			li = element("li");
+    			a = element("a");
     			t0 = text(t0_value);
     			t1 = space();
-    			attr_dev(li, "class", "svelte-1kn2sj3");
-    			toggle_class(li, "active", /*currentPage*/ ctx[0] === /*link*/ ctx[7]);
-    			add_location(li, file$1, 63, 10, 1138);
+    			attr_dev(a, "href", a_href_value = /*link*/ ctx[6].path);
+    			toggle_class(a, "active", /*currentPage*/ ctx[0] === /*link*/ ctx[6].path);
+    			add_location(a, file$1, 86, 12, 1432);
+    			attr_dev(li, "class", "svelte-18h7s53");
+    			add_location(li, file$1, 85, 10, 1415);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
-    			append_dev(li, t0);
+    			append_dev(li, a);
+    			append_dev(a, t0);
     			append_dev(li, t1);
 
     			if (!mounted) {
-    				dispose = listen_dev(li, "click", click_handler_1, false, false, false);
+    				dispose = listen_dev(a, "click", /*click_handler*/ ctx[4], false, false, false);
     				mounted = true;
     			}
     		},
-    		p: function update(new_ctx, dirty) {
-    			ctx = new_ctx;
-
-    			if (dirty & /*currentPage, navLinks*/ 5) {
-    				toggle_class(li, "active", /*currentPage*/ ctx[0] === /*link*/ ctx[7]);
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*currentPage, routeLinks*/ 9) {
+    				toggle_class(a, "active", /*currentPage*/ ctx[0] === /*link*/ ctx[6].path);
     			}
     		},
     		d: function destroy(detaching) {
@@ -1959,7 +1959,7 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(63:8) {#each navLinks as link}",
+    		source: "(85:8) {#each routeLinks as link}",
     		ctx
     	});
 
@@ -2035,15 +2035,21 @@ var app = (function () {
     }
 
     function instance$1($$self, $$props, $$invalidate) {
-    	let navLinks = ["Home", "About", "Handwashing", "Notes", "Contact"];
-    	let { currentPage } = $$props;
-    	let { show = false } = $$props;
     	const dispatch = createEventDispatcher();
 
-    	const changePage = e => {
-    		dispatch("changePage", e);
-    	};
+    	let routeLinks = [
+    		{ name: "Home", path: "/" },
+    		{ name: "About", path: "/about" },
+    		{
+    			name: "Handwashing",
+    			path: "/handwashing"
+    		},
+    		{ name: "Notes", path: "/notes" },
+    		{ name: "Contact", path: "/contact" }
+    	];
 
+    	let { currentPage } = $$props;
+    	let { show = false } = $$props;
     	const writable_props = ["currentPage", "show"];
 
     	Object.keys($$props).forEach(key => {
@@ -2052,8 +2058,12 @@ var app = (function () {
 
     	let { $$slots = {}, $$scope } = $$props;
     	validate_slots("Sidenav", $$slots, []);
-    	const click_handler = () => dispatch("closeNav");
-    	const click_handler_1 = link => changePage(link);
+
+    	function click_handler(event) {
+    		bubble($$self, event);
+    	}
+
+    	const click_handler_1 = () => dispatch("closeNav");
 
     	$$self.$set = $$props => {
     		if ("currentPage" in $$props) $$invalidate(0, currentPage = $$props.currentPage);
@@ -2063,15 +2073,14 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		fly,
     		createEventDispatcher,
-    		navLinks,
-    		currentPage,
-    		show,
     		dispatch,
-    		changePage
+    		routeLinks,
+    		currentPage,
+    		show
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ("navLinks" in $$props) $$invalidate(2, navLinks = $$props.navLinks);
+    		if ("routeLinks" in $$props) $$invalidate(3, routeLinks = $$props.routeLinks);
     		if ("currentPage" in $$props) $$invalidate(0, currentPage = $$props.currentPage);
     		if ("show" in $$props) $$invalidate(1, show = $$props.show);
     	};
@@ -2080,15 +2089,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [
-    		currentPage,
-    		show,
-    		navLinks,
-    		dispatch,
-    		changePage,
-    		click_handler,
-    		click_handler_1
-    	];
+    	return [currentPage, show, dispatch, routeLinks, click_handler, click_handler_1];
     }
 
     class Sidenav extends SvelteComponentDev {
@@ -3364,7 +3365,7 @@ var app = (function () {
     const { console: console_1$2 } = globals;
     const file$9 = "src/App.svelte";
 
-    // (44:37) 
+    // (36:37) 
     function create_if_block_3(ctx) {
     	let current;
     	const notes = new Notes({ $$inline: true });
@@ -3396,14 +3397,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(44:37) ",
+    		source: "(36:37) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (42:43) 
+    // (34:43) 
     function create_if_block_2(ctx) {
     	let current;
     	const handwashing = new Handwashing({ $$inline: true });
@@ -3435,18 +3436,18 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(42:43) ",
+    		source: "(34:43) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (40:37) 
+    // (32:37) 
     function create_if_block_1(ctx) {
     	let current;
     	const about = new About({ $$inline: true });
-    	about.$on("action", /*action_handler*/ ctx[8]);
+    	about.$on("action", /*action_handler*/ ctx[7]);
 
     	const block = {
     		c: function create() {
@@ -3475,14 +3476,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(40:37) ",
+    		source: "(32:37) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (38:2) {#if currentPage === '/home'}
+    // (30:2) {#if currentPage === '/'}
     function create_if_block$1(ctx) {
     	let current;
     	const home = new Home({ $$inline: true });
@@ -3514,7 +3515,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(38:2) {#if currentPage === '/home'}",
+    		source: "(30:2) {#if currentPage === '/'}",
     		ctx
     	});
 
@@ -3535,11 +3536,11 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	header.$on("click", /*click_handler*/ ctx[3]);
-    	header.$on("changePage", /*changePage_handler*/ ctx[4]);
+    	header.$on("click", /*click_handler*/ ctx[2]);
+    	header.$on("changePage", /*changePage_handler*/ ctx[3]);
 
     	function sidenav_show_binding(value) {
-    		/*sidenav_show_binding*/ ctx[5].call(null, value);
+    		/*sidenav_show_binding*/ ctx[4].call(null, value);
     	}
 
     	let sidenav_props = { currentPage: /*currentPage*/ ctx[1] };
@@ -3550,13 +3551,13 @@ var app = (function () {
 
     	const sidenav = new Sidenav({ props: sidenav_props, $$inline: true });
     	binding_callbacks.push(() => bind(sidenav, "show", sidenav_show_binding));
-    	sidenav.$on("closeNav", /*closeNav_handler*/ ctx[6]);
-    	sidenav.$on("changePage", /*changePage_handler_1*/ ctx[7]);
+    	sidenav.$on("click", /*click_handler_1*/ ctx[5]);
+    	sidenav.$on("changePage", /*changePage_handler_1*/ ctx[6]);
     	const if_block_creators = [create_if_block$1, create_if_block_1, create_if_block_2, create_if_block_3];
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*currentPage*/ ctx[1] === "/home") return 0;
+    		if (/*currentPage*/ ctx[1] === "/") return 0;
     		if (/*currentPage*/ ctx[1] === "/about") return 1;
     		if (/*currentPage*/ ctx[1] === "/handwashing") return 2;
     		if (/*currentPage*/ ctx[1] === "/notes") return 3;
@@ -3576,7 +3577,7 @@ var app = (function () {
     			main = element("main");
     			if (if_block) if_block.c();
     			attr_dev(main, "class", "svelte-1awqykv");
-    			add_location(main, file$9, 36, 0, 787);
+    			add_location(main, file$9, 28, 0, 685);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3680,15 +3681,7 @@ var app = (function () {
 
     function instance$a($$self, $$props, $$invalidate) {
     	let sidebar_show = false;
-    	let currentPage = "/";
-
-    	const changePage = e => {
-    		$$invalidate(1, currentPage = e);
-    		$$invalidate(0, sidebar_show = false);
-    		console.log("he");
-    		console.log(currentPage);
-    	};
-
+    	let currentPage = window.location.pathname || "/";
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
@@ -3705,7 +3698,7 @@ var app = (function () {
     		$$invalidate(0, sidebar_show);
     	}
 
-    	const closeNav_handler = () => $$invalidate(0, sidebar_show = false);
+    	const click_handler_1 = () => $$invalidate(0, sidebar_show = false);
     	const changePage_handler_1 = e => changePage(e.detail);
     	const action_handler = e => console.log(e.detail);
 
@@ -3717,8 +3710,7 @@ var app = (function () {
     		Handwashing,
     		Notes,
     		sidebar_show,
-    		currentPage,
-    		changePage
+    		currentPage
     	});
 
     	$$self.$inject_state = $$props => {
@@ -3733,11 +3725,10 @@ var app = (function () {
     	return [
     		sidebar_show,
     		currentPage,
-    		changePage,
     		click_handler,
     		changePage_handler,
     		sidenav_show_binding,
-    		closeNav_handler,
+    		click_handler_1,
     		changePage_handler_1,
     		action_handler
     	];
