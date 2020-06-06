@@ -1,9 +1,47 @@
 <script>
+  import page from 'page.js'
   import { createEventDispatcher } from "svelte";
   let navLinks = ["Home", "About", "Handwashing", "Notes", "Contact"];
+
+  let routeLinks = [
+    {
+      name: "Home",
+      path: '/'
+    },
+    {
+      name: "About",
+      path: '/about'
+    },
+    {
+      name: "Handwashing",
+      path: '/handwashing'
+    },
+    {
+      name: "Notes",
+      path: '/notes'
+    },
+    {
+      name: "Contact",
+      path: '/contact'
+    },
+  ]
   export let currentPage;
 
   const dispatch = createEventDispatcher();
+
+  function navigate (ctx, next) {
+    console.log(`navigate to: ${ctx.path}`);
+    dispatch("changePage", ctx.path)
+    
+  }
+
+  page('/', navigate)
+  page('/about', navigate)
+  page('/notes', navigate)
+  page('/handwashing', navigate)
+  page('/contact', navigate)
+
+  page.start()
 
   const changePage = e => {
     dispatch("changePage", e);
@@ -90,14 +128,25 @@
     </div>
     <nav>
       <ul>
-        {#each navLinks as link}
-          <li
-            class:active={currentPage === link}
-            on:click={() => changePage(link)}>
-            {link}
-          </li>
+        {#each routeLinks as link}
+          <a
+            style="margin-left: 20px"
+            class:active={currentPage === link.path}
+            href={link.path}>
+            {link.name}
+          </a>
         {/each}
       </ul>
+<!-- 
+      <ul>
+        {#each routeLinks as link}
+          <li
+            class:active={currentPage === link.name}
+            on:click={() => changePage(link.path)}>
+            {link.name}
+          </li>
+        {/each}
+      </ul> -->
     </nav>
     <div class="burger" on:click>
       <div />

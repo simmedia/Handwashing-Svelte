@@ -2,17 +2,21 @@
   import Header from "./UI/Header.svelte";
   import Sidenav from "./UI/Sidenav.svelte";
 
+
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
   import Handwashing from "./pages/Handwashing.svelte";
   import Notes from "./pages/Notes.svelte";
 
   let sidebar_show = false;
-  let currentPage = "Home";
+  let currentPage = "/";
 
 const changePage = (e) => {
   currentPage = e
   sidebar_show = false;
+  console.log('he');
+  console.log(currentPage);
+  
 }
   
 </script>
@@ -31,13 +35,13 @@ main {
 
 
 <main>
-  {#if currentPage === 'Home'}
+  {#if currentPage === '/home'}
     <Home />
-  {:else if currentPage === 'About'}
+  {:else if currentPage === '/about'}
     <About on:action={e => console.log(e.detail)} />
-  {:else if currentPage === 'Handwashing'}
+  {:else if currentPage === '/handwashing'}
     <Handwashing />
-  {:else if currentPage === 'Notes'}
+  {:else if currentPage === '/notes'}
     <Notes />
   {/if}
 </main>
