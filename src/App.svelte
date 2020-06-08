@@ -1,8 +1,9 @@
 <script>
+  // components
   import Header from "./UI/Header.svelte";
   import Sidenav from "./UI/Sidenav.svelte";
 
-
+  // pages
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
   import Handwashing from "./pages/Handwashing.svelte";
@@ -10,23 +11,24 @@
 
   let sidebar_show = false;
   let currentPage = window.location.pathname || "/";
-
 </script>
 
 <style>
-main {
-  padding-top: 100px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
+  main {
+    padding: 100px 20px 0px 20px;
+  }
 </style>
 
 <Header
   on:click={() => (sidebar_show = !sidebar_show)}
   {currentPage}
   on:changePage={e => (currentPage = e.detail)} />
-<Sidenav on:closeNav={()=> sidebar_show = false} on:click={()=> sidebar_show = false} bind:show={sidebar_show} {currentPage} on:changePage={e => changePage(e.detail)} />
-
+<Sidenav
+  on:closeNav={() => (sidebar_show = false)}
+  on:click={() => (sidebar_show = false)}
+  bind:show={sidebar_show}
+  {currentPage}
+  on:changePage={e => changePage(e.detail)} />
 
 <main>
   {#if currentPage === '/'}

@@ -1,27 +1,22 @@
 <script>
-  import page from 'page.js'
+  import page from "page.js";
   import { createEventDispatcher } from "svelte";
-  import {routeLinks} from '../store/routes.js'
+  import { routeLinks } from "../store/routes.js";
 
   export let currentPage;
 
   const dispatch = createEventDispatcher();
 
-  function navigate (ctx, next) {
-    dispatch("changePage", ctx.path)
-    
+  function navigate(ctx, next) {
+    dispatch("changePage", ctx.path);
   }
 
-  page('/', navigate)
-  page('/about', navigate)
-  page('/notes', navigate)
-  page('/handwashing', navigate)
-  page('/contact', navigate)
-  page.start({hashbang: false})
-
-  const changePage = e => {
-    dispatch("changePage", e);
-  };
+  page("/", navigate);
+  page("/about", navigate);
+  page("/notes", navigate);
+  page("/handwashing", navigate);
+  page("/contact", navigate);
+  page.start({ hashbang: false });
 </script>
 
 <style>
