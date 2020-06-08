@@ -1476,14 +1476,14 @@ var app = (function () {
 
     function get_each_context(ctx, list, i) {
     	const child_ctx = ctx.slice();
-    	child_ctx[5] = list[i];
+    	child_ctx[4] = list[i];
     	return child_ctx;
     }
 
-    // (113:8) {#each routeLinks as link}
+    // (108:8) {#each routeLinks as link}
     function create_each_block(ctx) {
     	let a;
-    	let t0_value = /*link*/ ctx[5].name + "";
+    	let t0_value = /*link*/ ctx[4].name + "";
     	let t0;
     	let t1;
     	let a_href_value;
@@ -1494,10 +1494,10 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			set_style(a, "margin-left", "20px");
-    			attr_dev(a, "href", a_href_value = /*link*/ ctx[5].path);
+    			attr_dev(a, "href", a_href_value = /*link*/ ctx[4].path);
     			attr_dev(a, "class", "svelte-1rf9whw");
-    			toggle_class(a, "active", /*currentPage*/ ctx[0] === /*link*/ ctx[5].path);
-    			add_location(a, file, 113, 10, 2054);
+    			toggle_class(a, "active", /*currentPage*/ ctx[0] === /*link*/ ctx[4].path);
+    			add_location(a, file, 108, 10, 1996);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, a, anchor);
@@ -1506,7 +1506,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			if (dirty & /*currentPage, routeLinks*/ 1) {
-    				toggle_class(a, "active", /*currentPage*/ ctx[0] === /*link*/ ctx[5].path);
+    				toggle_class(a, "active", /*currentPage*/ ctx[0] === /*link*/ ctx[4].path);
     			}
     		},
     		d: function destroy(detaching) {
@@ -1518,7 +1518,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(113:8) {#each routeLinks as link}",
+    		source: "(108:8) {#each routeLinks as link}",
     		ctx
     	});
 
@@ -1574,26 +1574,26 @@ var app = (function () {
     			div2 = element("div");
     			t4 = space();
     			div3 = element("div");
-    			add_location(h3, file, 107, 8, 1945);
-    			add_location(span, file, 106, 6, 1930);
+    			add_location(h3, file, 102, 8, 1887);
+    			add_location(span, file, 101, 6, 1872);
     			attr_dev(div0, "class", "logo");
-    			add_location(div0, file, 105, 4, 1905);
+    			add_location(div0, file, 100, 4, 1847);
     			attr_dev(ul, "class", "svelte-1rf9whw");
-    			add_location(ul, file, 111, 6, 2004);
+    			add_location(ul, file, 106, 6, 1946);
     			attr_dev(nav, "class", "svelte-1rf9whw");
-    			add_location(nav, file, 110, 4, 1992);
+    			add_location(nav, file, 105, 4, 1934);
     			attr_dev(div1, "class", "svelte-1rf9whw");
-    			add_location(div1, file, 123, 6, 2296);
+    			add_location(div1, file, 118, 6, 2238);
     			attr_dev(div2, "class", "svelte-1rf9whw");
-    			add_location(div2, file, 124, 6, 2310);
+    			add_location(div2, file, 119, 6, 2252);
     			attr_dev(div3, "class", "svelte-1rf9whw");
-    			add_location(div3, file, 125, 6, 2324);
+    			add_location(div3, file, 120, 6, 2266);
     			attr_dev(div4, "class", "burger svelte-1rf9whw");
-    			add_location(div4, file, 122, 4, 2260);
+    			add_location(div4, file, 117, 4, 2202);
     			attr_dev(div5, "class", "h-container svelte-1rf9whw");
-    			add_location(div5, file, 104, 2, 1875);
+    			add_location(div5, file, 99, 2, 1817);
     			attr_dev(div6, "class", "header svelte-1rf9whw");
-    			add_location(div6, file, 103, 0, 1852);
+    			add_location(div6, file, 98, 0, 1794);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1621,7 +1621,7 @@ var app = (function () {
     			append_dev(div4, div3);
 
     			if (!mounted) {
-    				dispose = listen_dev(div4, "click", /*click_handler*/ ctx[4], false, false, false);
+    				dispose = listen_dev(div4, "click", /*click_handler*/ ctx[3], false, false, false);
     				mounted = true;
     			}
     		},
@@ -1685,11 +1685,6 @@ var app = (function () {
     	page_js("/handwashing", navigate);
     	page_js("/contact", navigate);
     	page_js.start({ hashbang: false });
-
-    	const changePage = e => {
-    		dispatch("changePage", e);
-    	};
-
     	const writable_props = ["currentPage"];
 
     	Object.keys($$props).forEach(key => {
@@ -1713,8 +1708,7 @@ var app = (function () {
     		routeLinks,
     		currentPage,
     		dispatch,
-    		navigate,
-    		changePage
+    		navigate
     	});
 
     	$$self.$inject_state = $$props => {
@@ -1725,7 +1719,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [currentPage, dispatch, navigate, changePage, click_handler];
+    	return [currentPage, dispatch, navigate, click_handler];
     }
 
     class Header extends SvelteComponentDev {
@@ -3347,7 +3341,7 @@ var app = (function () {
     const { console: console_1$1 } = globals;
     const file$9 = "src/App.svelte";
 
-    // (38:37) 
+    // (40:37) 
     function create_if_block_3(ctx) {
     	let current;
     	const notes = new Notes({ $$inline: true });
@@ -3379,14 +3373,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(38:37) ",
+    		source: "(40:37) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (36:43) 
+    // (38:43) 
     function create_if_block_2(ctx) {
     	let current;
     	const handwashing = new Handwashing({ $$inline: true });
@@ -3418,14 +3412,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(36:43) ",
+    		source: "(38:43) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:37) 
+    // (36:37) 
     function create_if_block_1(ctx) {
     	let current;
     	const about = new About({ $$inline: true });
@@ -3458,14 +3452,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(34:37) ",
+    		source: "(36:37) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (32:2) {#if currentPage === '/'}
+    // (34:2) {#if currentPage === '/'}
     function create_if_block$1(ctx) {
     	let current;
     	const home = new Home({ $$inline: true });
@@ -3497,7 +3491,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(32:2) {#if currentPage === '/'}",
+    		source: "(34:2) {#if currentPage === '/'}",
     		ctx
     	});
 
@@ -3559,8 +3553,8 @@ var app = (function () {
     			t1 = space();
     			main = element("main");
     			if (if_block) if_block.c();
-    			attr_dev(main, "class", "svelte-b3g5se");
-    			add_location(main, file$9, 30, 0, 770);
+    			attr_dev(main, "class", "svelte-hxbwy9");
+    			add_location(main, file$9, 32, 0, 781);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
