@@ -2,12 +2,31 @@
   // components
   import Header from "./UI/Header.svelte";
   import Sidenav from "./UI/Sidenav.svelte";
-
+  import BottomNav from "./components/BottomNav.svelte";
   // pages
   import Home from "./pages/Home.svelte";
   import About from "./pages/About.svelte";
   import Handwashing from "./pages/Handwashing.svelte";
   import Notes from "./pages/Notes.svelte";
+
+  let links = [
+    {
+      name: "Shop",
+      icon: `<i class="fas fa-shopping-cart" />`
+    },
+    {
+      name: "Auction",
+      icon: `<i class="fas fa-gavel" />`
+    },
+    {
+      name: "Batteries",
+      icon: `<i class="fas fa-car-battery" />`
+    },
+    {
+      name: "Bids",
+      icon: `<i class="fas fa-wallet" />`
+    }
+  ];
 
   let sidebar_show = false;
   let currentPage = window.location.pathname || "/";
@@ -41,3 +60,5 @@
     <Notes />
   {/if}
 </main>
+
+<BottomNav color="var(--prime)" bottomNavLinks={links} />
